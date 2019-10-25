@@ -53,32 +53,73 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
  
 $myShoes=brandBased($_POST["selectBrand"]);
 
+
+
 //var_dump($myShoes);
 
 //view
 echo "<section>";
 
 foreach ($myShoes as $shoe) {
-  echo "<article>";
 
     $shoeImg=$shoe["image"];
     $shoeBrand=$shoe["brand"];
     $stature=$shoe["golden"];
     $shoeSize=$shoe["size"];
 
-
-    echo '<img src="img/'.$shoeImg.'">';
-    echo "<h2> Mærke: ".$shoeBrand."</h2>";
-    if ($stature == true) {
-      echo "<p> Golden </p>";
-    } else{
+  if ($_POST["selectGolden"]=="All") {
+    echo "<article>";
+      echo '<img src="img/'.$shoeImg.'">';
+      echo "<h2> Mærke: ".$shoeBrand."</h2>";
+      if ($stature == true) {
+        echo "<p> Golden </p>";
+      } 
+      else{
       echo " ";
-    }
-    echo "<p> Størrelse: ".$shoeSize."</p>";
-  echo "</article>";
-}
-echo "</section>";
+      }
+      echo "<p> Størrelse: ".$shoeSize."</p>";
+      echo "</article>";
+  }
 
+  if ($_POST["selectGolden"]=="golden") {
+    if ($stature==true) {
+      
+      echo "<article>";
+      echo '<img src="img/'.$shoeImg.'">';
+      echo "<h2> Mærke: ".$shoeBrand."</h2>";
+      if ($stature == true) {
+        echo "<p> Golden </p>";
+      } 
+      else{
+      echo " ";
+      }
+      echo "<p> Størrelse: ".$shoeSize."</p>";
+      echo "</article>";
+}
+    }
+
+  
+  else
+  {
+    if ($stature==false) {
+      echo "<article>";
+      echo '<img src="img/'.$shoeImg.'">';
+      echo "<h2> Mærke: ".$shoeBrand."</h2>";
+      if ($stature == true) {
+        echo "<p> Golden </p>";
+      } 
+      else{
+      echo " ";
+      }
+      echo "<p> Størrelse: ".$shoeSize."</p>";
+      echo "</article>";
+    }
+  }
+ 
+
+  
+echo "</section>";
+}
 }
 
 
