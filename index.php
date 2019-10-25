@@ -1,11 +1,11 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
  <html lang="en">
 
 <head>
      <meta charset="UTF-8">
      <title>golden shoe</title>
      <meta name="description" content="DESCRIPTION">
-    <link rel="stylesheet" href="PATH">
+    <link rel="stylesheet" href="css/main.css">
 
      <!--[if lt IE 9]>
        <script src = "http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -43,30 +43,20 @@
 <?php
 // include the model code to acces the functions
 include "model/shoemodel.php";
-
-
 // check for post
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-
 // get post result
  
 $myShoes=brandBased($_POST["selectBrand"]);
-
-
-
 //var_dump($myShoes);
-
 //view
 echo "<section>";
-
 foreach ($myShoes as $shoe) {
-
     $shoeImg=$shoe["image"];
     $shoeBrand=$shoe["brand"];
     $stature=$shoe["golden"];
     $shoeSize=$shoe["size"];
-
   if ($_POST["selectGolden"]=="All") {
       echo "<article>";
       echo '<img src="img/'.$shoeImg.'">';
@@ -80,7 +70,6 @@ foreach ($myShoes as $shoe) {
       echo "<p> Størrelse: ".$shoeSize."</p>";
       echo "</article>";
   }
-
   else if ($_POST["selectGolden"]=="golden") {
     if ($stature==true) {
       
@@ -97,7 +86,6 @@ foreach ($myShoes as $shoe) {
       echo "</article>";
 }
     }
-
   
   else
   {
@@ -116,13 +104,11 @@ foreach ($myShoes as $shoe) {
     }
   }
  
-
   
+
+}
 echo "</section>";
 }
-}
-
-
 ?>
 
 
