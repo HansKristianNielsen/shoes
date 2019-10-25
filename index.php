@@ -68,7 +68,7 @@ foreach ($myShoes as $shoe) {
     $shoeSize=$shoe["size"];
 
   if ($_POST["selectGolden"]=="All") {
-    echo "<article>";
+      echo "<article>";
       echo '<img src="img/'.$shoeImg.'">';
       echo "<h2> Mærke: ".$shoeBrand."</h2>";
       if ($stature == true) {
@@ -81,7 +81,7 @@ foreach ($myShoes as $shoe) {
       echo "</article>";
   }
 
-  if ($_POST["selectGolden"]=="golden") {
+  else if ($_POST["selectGolden"]=="golden") {
     if ($stature==true) {
       
       echo "<article>";
